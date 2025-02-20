@@ -133,7 +133,7 @@ We welcome contributions to make this script even more brainrotting!  Here are s
 
 If you encounter any issues, have questions about using the script, or just want to share your Brainrot creations, please feel free to reach out!  You can:
 
-* **Open an issue on the project's GitHub repository (if applicable).**  *\[Link to your repository here if you have one]*
+* **Open an issue on the project's GitHub repository (if applicable).**  *\[[PDF2BRAINROT](https://github.com/Pramoda-S-R/PDF2BRAINROT)]*
 * **Contact the script author directly at \[pramoda9.2.2004@gmail.com]**
 
 We are excited to see what Brainrot content you create and how you might contribute to this project!
