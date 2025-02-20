@@ -1,0 +1,10 @@
+pymupdf
+kokoro
+soundfile
+scipy
+moviepy
+vosk
+tqdm 
+ffmpeg-python
+imageio 
+imageio-ffmpeg
