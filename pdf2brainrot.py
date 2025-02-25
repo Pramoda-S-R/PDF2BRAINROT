@@ -74,11 +74,11 @@ def generate_tts_audio(text: str, voice: str = "af_heart", speed: int = 1, lang_
     return final_audio_path  # Return the final audio file path
 
 
-def extract_timestamps(audio_path: str, model_size: str) -> List[Dict[str, str | float]]:
+def extract_timestamps(audio_path: str) -> List[Dict[str, str | float]]:
     """Extract timestamps using Vosk but without using Whisper."""
     audio = whisper.load_audio(audio_path)
 
-    model = whisper.load_model(model_size, device=device)
+    model = whisper.load_model("small", device=device)
 
     result = whisper.transcribe(model, audio, language="en")
 
@@ -132,7 +132,7 @@ def overlay_text_on_video(video_path: str, aligned_words, output_path: str) -> N
     print(f"✅ Final video with subtitles saved as {output_path}")
 
 
-def main(model: str) -> None:
+def main() -> None:
     """Main function to generate brainrot with subtitles."""
     # Read script text
     with open(SCRIPT_PATH, "r", encoding="utf-8") as file:
@@ -148,7 +148,7 @@ def main(model: str) -> None:
 
     # Extract raw timestamps
     print("🕒 Extracting timestamps...")
-    word_timestamps = extract_timestamps(tts_audio_file, model)
+    word_timestamps = extract_timestamps(tts_audio_file)
 
     # Overlay synchronized subtitles
     print("📝 Overlaying synchronized subtitles...")
@@ -158,9 +158,8 @@ def main(model: str) -> None:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Extract text from a PDF file, summarize it, and generate brainrot with subtitles.")
     # parser.add_argument("--source", "-s", required=True, help="Path to the source PDF file.")
-    parser.add_argument("--model", "-m", required=True, help="The whisper model you want to use - tiny, base, small, medium, large or turbo.")
-
+ 
     args = parser.parse_args()
 
     # extract_text_from_pdf(args.source)
-    main(model = args.model)
+    main()
